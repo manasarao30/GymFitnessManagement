@@ -1,0 +1,58 @@
+<div
+    style="background-color: whitesmoke; min-height:80vh; font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; border-radius: 12px; padding-left: 2vh; padding-right: 2vh;">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-4"><button class="btn btn  me-md-2" style=" margin: 1vw; color: grey ;">
+                <h3>Feedback Management</h3>
+            </button></div>
+
+            <div class="col-sm-4 " >
+                <div *ngIf="msg"><p class="alert alert-success">{{msg}}</p></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col">
+                <table class="table table-striped shadow-lg container-fluid">
+                    <thead>
+                        <tr style="color: #1F2833;">
+                            <th scope="col"></th>
+                            <th scope="col">Feedback</th>
+                            <th scope="col">User id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">User name</th>
+                            <th scope="col">User email</th>
+                            <th scope="col">Membership status</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of packages; index as i;">
+
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{user.feedback_text}}</td>
+                            <td>{{user.member_id}}</td>
+                            <td>{{user.dateOfFeedback}}</td>
+                            <td>{{user.fname}} {{user.lname}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.membership_status}}</td>
+
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+                <p *ngIf="packages.length==0"> No Records Found</p>
+            </div>
+
+            <div class="col"></div>
+        </div>
+    </div>
+</div>

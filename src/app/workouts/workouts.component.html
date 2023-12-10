@@ -1,0 +1,26 @@
+<div
+  style="font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; border-radius: 12px; padding-left: 2vh; padding-right: 2vh;">
+
+  <hr style="height: 2px; margin: 1%;padding: 0;">
+  <div class="row row-cols-1 row-cols-md-2 g-1">
+
+    <div *ngFor="let work of workouts" class="col">
+      <div class="card shadow-lg" style="margin: 2vh;">
+        <img src="assets\packi\cardioicon.svg" class="card-img-top" alt="..."
+          style="max-width: 20vh; align-self: center; padding-bottom:1.2vh;">
+        <div class="card-body">
+          <div style=" color: grey; border-radius: 5px;">
+            <h4 class="card-title" style=" text-align: center;">{{work.class_name}}</h4>
+          </div>
+          <p class="card-text">{{work.duration}}</p>
+          <p class="card-text">{{work.timings}}</p>
+          Taught by {{work.fname}} {{work.lname}}
+          <div style=" color: #1F2833; display: flex; justify-content: flex-end; border-radius: 5px;  ">
+            </div>
+        </div><button type="button" class="btn btn-secondary"
+          (click)="pac.attendWorkout(work,useriid)">{{attend}} class</button>
+      </div>
+    </div>
+  </div>
+</div>

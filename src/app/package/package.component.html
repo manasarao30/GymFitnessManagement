@@ -1,0 +1,30 @@
+<div
+  style="font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; border-radius: 12px; padding-left: 2vh; padding-right: 2vh;">
+
+  <hr style="height: 2px; margin: 1%;padding: 0;">
+  <div class="row row-cols-1 row-cols-md-2 g-1">
+
+    <div *ngFor="let pac of packages" class="col">
+      <div class="card shadow-lg" style="margin: 2vh;">
+        <img src="assets\icon.jpeg" class="card-img-top" alt="..."
+          style="max-width: 20vh; align-self: center; padding-bottom:1.2vh;">
+        <div class="card-body">
+          <div style=" color: grey; border-radius: 5px;">
+            <h4 class="card-title" style=" text-align: center;">{{pac.plan_name}} Plan</h4>
+          </div>
+          <p class="card-text">Plan duration: {{pac.duration}}</p>
+
+          <ul>
+            <li class="card-text" *ngFor="let benefit of pac.benefits.split(',')">{{ benefit }}</li>
+          </ul>
+          
+          <div style=" color: #1F2833; display: flex; justify-content: flex-end; border-radius: 5px;  ">
+            <h5 class="card-title " style=" text-align: center; padding: .4vh; border-radius: 4px;"> Price :&#36; {{pac.price}}</h5>
+            </div>
+        </div><button type="button" class="btn btn-secondary"
+          (click)="pacService.packageBuy(pac)">Buy package</button>
+      </div>
+    </div>
+  </div>
+</div>

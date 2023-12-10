@@ -1,0 +1,152 @@
+<div  style="font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; max-height:200vh; ">
+    <hr style="height: 2px; margin: 1%;padding: 0;">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-lg border-0 rounded-lg" style=" border-radius: 12px;">
+                {{msg}}
+                <div class="card-header" >
+                    <h2 style="text-align: center; font-family: 'Roboto', sans-serif, cursive;
+                                                    font-family: 'Roboto', sans-serif, cursive;">Workout Class: {{packname}}</h2>
+                    <div class="card-body" style="background-color:  whitesmoke;  border-radius:12px ;">
+      
+                        <div *ngIf="isPackbuy">
+                        </div>
+                        <form (submit)="packCb(fo)" #fo="ngForm" class="row" *ngIf="userdata">
+                            <fieldset *ngIf="!isTrainer" class="form-group col-sm-3">
+
+                                <div class="col-sm-10">
+                                    <h5 
+                                    style=" border-radius: 12px;">
+                                    Trainer details:</h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <p>Trainer name : {{packdesc}}</p>
+                                </div>
+                                <hr style="margin: 1%; height: 2px;">
+                                <div class="col-sm-10">
+                                    <h5 
+                                    style=" border-radius: 12px;">
+                                    Equipments available:</h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <p> {{equipmentName}}</p>
+                                </div>
+                                <hr style="margin: 1%; height: 2px;">
+
+
+
+                                
+                            </fieldset>
+                            <fieldset *ngIf="isTrainer" class="form-group col-sm-3">
+
+                                <div class="col-sm-10">
+                                    <h5 
+                                    style="border-radius: 12px;">
+                                    Class member details:</h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <h5 
+                                    style="display: flex; justify-content: center; border-radius: 12px;">
+                                    Total number of students in the class: {{usersList.length}}</h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div *ngFor="let user of usersList">
+                                    <p>Name: {{user.fname}} {{user.lname}}</p>
+                                    </div>
+                                </div>
+                                <hr style="margin: 1%; height: 2px;">
+                            </fieldset>
+                            <fieldset class="form-group col-sm-8">
+                                <div class="row">
+                                    <div class="container-fluid"
+                                    style="
+                                    width: 300%;display: flex; flex-wrap: wrap; justify-content: center; background-color:  #c5c6c7; border-radius: 12px; padding: 0%; margin-top: 0.5vw; ">
+                                    <iframe max-width="1vh" style="margin:0.1vh;  border-radius: 12px;"
+                                        src="https://www.youtube.com/embed/IT94xC35u6k" title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+                                    </div>
+                                <hr style="margin: 1%; height: 2px;">
+                            </fieldset>
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset> 
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset> 
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset>    
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+
+                            </fieldset> 
+                        </form>
+
+
+                    </div>
+
+                    <div class="card-footer text-center py-3">
+                        <p class="card-text"><small class="text-muted">Darwin Fitness</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

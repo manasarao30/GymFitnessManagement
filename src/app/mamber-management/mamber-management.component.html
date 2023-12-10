@@ -1,0 +1,75 @@
+<div
+    style="background-color: whitesmoke; min-height:80vh; font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; border-radius: 12px; padding-left: 2vh; padding-right: 2vh;">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-4"><button class="btn btn  me-md-2" style=" margin: 1vw; color: grey; ">
+                <h3>Member Management</h3>
+            </button></div>
+
+            <div class="col-sm-4 " >
+                <div  style="color:#c5c6c7; margin-top: 10vh;">
+
+                    <div  style="color:#c5c6c7; margin-top: 10vh;">
+                        <button class="btn-secondary" routerLink="/adduser">Add User</button>
+                    </div>
+                </div>
+                <div *ngIf="msg"><p class="alert alert-success">{{msg}}</p></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col">
+                <table class="table table-striped shadow-lg container-fluid">
+                    <thead>
+                        <tr style="color: #1F2833;">
+                            <th scope="col"></th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">gender</th>
+                            <th scope="col">age</th>
+                            <th scope="col">package</th>
+                            <th scope="col">Membership status</th>
+                            <th scope="col">Date of Purchase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users; index as i;">
+
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{user.fname}} {{user.lname}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.phone_no}}</td>
+                            <td>{{user.gender}}</td>
+                            <td>{{user.age}}</td>
+                            <td>{{user.plan_name}}</td>
+                            <td>{{user.membership_status}}</td>
+                            <td>{{user.dateOfRegistration|slice :0:10}}</td>
+                            <td style="display: flex; margin: 1vh; background-color:#c5c6c7">
+                                <button class="btn-secondary"routerLink="/edituser/{{user.member_id}}">Edit</button> &nbsp;
+                                    <button class="btn-secondary"(click)="deleteUser(user.member_id)">Delete</button><img
+                                    src="assets\user-minus-solid.svg" height="30vw"
+                                    style="padding:0.5vh; border-radius: 2px; "
+                                    >
+
+                            </td>
+
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+                <p *ngIf="users.length==0"> No Records Found</p>
+            </div>
+
+            <div class="col"></div>
+        </div>
+    </div>
+</div>

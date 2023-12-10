@@ -1,0 +1,49 @@
+<div class="container" style="min-height: 560px; font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive;">
+
+  <div class="row justify-content-center" style="padding-top: 4%;">
+    <div class="col-lg-5">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+
+        <div class="card-header " style="background-color:  #c5c6c7;">
+          <h2 style="text-align: center; font-family: 'Roboto', sans-serif, cursive;
+                                              font-family: 'Roboto', sans-serif, cursive;">Add Equipment</h2>
+          <h5>{{msg}}</h5>
+          <div class="card-body shadow-lg" style="background-color:  #1F2833;">
+
+            <form (submit)="addEquipment(f)" #f="ngForm">
+              <div class="row">
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="inputfname" #firstname="ngModel" name="name" ngModel type="text"
+                      placeholder="fname" required minlength="3" />
+                    <label for="fname">Equiment Name</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="inputlname" #lastname="ngModel" name="description" type="text" placeholder="lname" ngModel required />
+                    <label for="lname">Description</label>
+                  </div>
+                </div>
+              </div>
+              <p class="alert alert-danger" *ngIf="firstname.errors?.required && firstname.touched">Please enter the First Name</p>
+              <p class="alert alert-danger" *ngIf="firstname.errors?.minlength && firstname.touched">Please enter Min 3 characters </p>
+      
+              <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                <button class="btn btn-secondary btn-block" value="Register" type="submit"
+                  [disabled]="f.invalid" style="text-align: center; font-family: 'Roboto', sans-serif, cursive;
+                                                          font-family: 'Roboto', sans-serif, cursive;"> Add</button> <h5 style="color: black;">{{msg}}</h5>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-center py-3">
+            <p class="card-text"><small class="text-muted">Darwin Fitness</small></p>
+            <button class="btn btn-secondary me-md-2" type="button" routerLink="/admin-dashboard" style="border:solid #1F2833; margin: 1vw;">Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

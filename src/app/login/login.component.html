@@ -1,0 +1,61 @@
+
+<div class="container" style="min-height: 560px; font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive;">
+    
+    <div class="row justify-content-center" style="padding-top: 4%;">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                
+                <div class="card-header" style="background-color:  #c5c6c7;">
+                    <h2 style="text-align: center;">Login</h2>
+                    <div class="card-body" ><p class="alert alert-danger" *ngIf="msg" style="align-self: center;">{{msg}}</p>
+                        <form #f="ngForm" (submit)="doLogin(f)">
+                            <div class="row ml-3" style="display: flex;">
+                                <div class="form-check col-lg-3" style="margin-top: 10px;">
+                                    <input class="form-check-input" type="radio" (change)="valSelected($event)" name="gender"  value="member" id="flexRadioDefault1" ngModel #usergender="ngModel"  required  >
+                                    <label class="form-check-label" for="flexRadioDefault1"
+                                      style="background-color: whitesmoke; ; width: 70%;  text-align: center;">
+                                      Member
+                                    </label>
+                                  </div>
+                                  <div class="form-check col-lg-3" style="margin-top: 10px;">
+                                    <input class="form-check-input" type="radio" (change)="valSelected($event)" name="gender"  value="trainer" id="flexRadioDefault2" ngModel #usergender="ngModel"  required  >
+                                    <label class="form-check-label" for="flexRadioDefault2"
+                                      style="background-color: whitesmoke; ; width: 70%;  text-align: center;">
+                                      Trainer
+                                    </label>
+                                  </div>
+                                  <div class="form-check col-lg-3" style="margin-top: 10px;">
+                                    <input class="form-check-input" type="radio" (change)="valSelected($event)" name="gender"  value="management" id="flexRadioDefault3" ngModel #usergender="ngModel"  required  >
+                                    <label class="form-check-label" for="flexRadioDefault3"
+                                      style="background-color: whitesmoke; ; width: 70%;  text-align: center;">
+                                      Admin
+                                    </label>
+                                  </div>
+                                  <div></div>
+                            </div>
+
+                            <div class="form-floating mb-3 mt-3">
+                                <input class="form-control" id="inputEmail" type="text" name="username"
+                                    placeholder="name@example.com" ngModel/>
+                                <label for="inputEmail">Username</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="userpass" ngModel/>
+                                <label for="inputPassword">Password</label>
+                            </div>
+                            
+                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                <button type="submit" class="btn btn-secondary btn-block" name="upassword" [disabled]="f.invalid" style="text-align: center;" >Login</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small" ><a routerLink="/register" style="color:  #1F2833;">Not a member? Please register!</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

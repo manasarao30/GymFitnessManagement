@@ -1,0 +1,81 @@
+<div  style="font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; max-height:200vh; ">
+    <hr style="height: 2px; margin: 1%;padding: 0;">
+
+
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-lg border-0 rounded-lg" style=" border-radius: 12px;">
+                {{msg}}
+                <div class="card-header" >
+                    <h2 style="text-align: center; font-family: 'Roboto', sans-serif, cursive;
+                                                    font-family: 'Roboto', sans-serif, cursive;">Check Out</h2>
+                    <div class="card-body" style="background-color:  whitesmoke;  border-radius:12px ;">
+                        <div *ngIf="isPackbuy">
+                            <h3
+                                style="display: flex;  border-radius: 12px; padding:4px;">
+                                Package: {{packname}} Plan</h3>
+                        </div>
+                        <form (submit)="packCb(fo)" #fo="ngForm" class="row" *ngIf="userdata">
+                            <div></div>
+                            <fieldset class="form-group col-sm-4">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2 pt-0">
+                                        <h5 
+                                            style="display: flex; justify-content: center; border-radius: 12px; padding:4px;">
+                                            Plan</h5>
+                                    </legend>
+                                    <div class="col-sm-10">
+                                        <div  *ngFor="let p of pacList" class="form-check">
+                                            <input class="form-check-input" (change)="updatePay($event)" type="radio" name=level #level="ngModel"
+                                                id={{p.plan_name}}  value={{p.plan_name}} [(ngModel)]="packname" required>
+                                            <label class="form-check-label" for=level>
+                                                {{p.plan_name}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group col-sm-3" style="margin-left: 2%;margin-top: 1%;margin-bottom: 1%">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2 pt-0">
+                                        <h5 
+                                            style="display: flex; justify-content: center; border-radius: 12px; padding:4px;">
+                                            Payment</h5>
+                                    </legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="payment" id="gridRadios1"
+                                                value="Gpay" required ngModel #payment="ngModel" [(ngModel)]="val" >
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Credit card/Debit card
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="payment" id="gridRadios3"
+                                                value="Network Banking" ngModel #payment="ngModel" [(ngModel)]="val" >
+                                            <label class="form-check-label" for="gridRadios3">
+                                                Network Banking
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div style="margin-top: 1vh; display:flex; justify-content: flex-end;">
+                                <h3 style="margin:1vh"> <span class="text-secondary">Package total &nbsp; </span> Total:&#36;{{pay}} </h3>
+                                <button type="submit" class="btn btn-secondary btn-lg" value="Buy"
+                                    [disabled]="fo.invalid">Buy</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                    <div class="card-footer text-center py-3">
+                        <p class="card-text"><small class="text-muted">Darwin Fitness</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

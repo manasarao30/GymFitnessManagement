@@ -1,0 +1,83 @@
+<div class="container" style="min-height: 560px; font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive;">
+
+  <div class="row justify-content-center" style="padding-top: 4%;">
+    <div class="col-lg-5">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+
+        <div class="card-header " style="background-color:  #c5c6c7;">
+          <h2 style="text-align: center; font-family: 'Roboto', sans-serif, cursive;
+                                              font-family: 'Roboto', sans-serif, cursive;">Add trainers</h2>
+          <h5>{{msg}}</h5>
+          <div class="card-body shadow-lg" >
+
+            <form (submit)="addtrainer(f)" #f="ngForm">
+              <div class="row">
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="inputfname" #firstname="ngModel" name="fname" ngModel type="text"
+                      placeholder="fname" required minlength="3" />
+                    <label for="fname">First Name</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="inputlname" #lastname="ngModel" name="lname" type="text" placeholder="lname" ngModel required />
+                    <label for="lname">Last Name</label>
+                  </div>
+                </div>
+              </div>
+              <p class="alert alert-danger" *ngIf="firstname.errors?.required && firstname.touched">Please enter the First Name</p>
+              <p class="alert alert-danger" *ngIf="firstname.errors?.minlength && firstname.touched">Please enter Min 3 characters </p>
+           
+              <div class="form-floating mb-3">
+                <input class="form-control" id="inputphone" type="text" placeholder="Phone Number" name="userphone" ngModel #userphone="ngModel"  required pattern="^(0|[1-9][0-9]*)$" maxlength="10"/>
+                <label for="inputphone">Phone Number</label>
+              </div>
+              <p class="alert alert-danger" *ngIf="userphone.errors?.required && userphone.touched">Please enter the Phone number</p>
+              <p class="alert alert-danger" *ngIf="userphone.errors?.pattern">please enter the valid phone number</p>
+
+              <div class="form-floating mb-3">
+                <input class="form-control" id="inputEmail" (blur)="uuemailcheck(uemail.value)" name="uemail" type="email" ngModel #uemail="ngModel"
+                placeholder="name@example.com" required email />
+                <label for="inputEmail">Email address</label>
+              </div>
+              <p class="alert alert-danger" *ngIf="uemail.errors?.required && uemail.touched">Please enter the Email</p>
+              <p class="alert alert-danger" *ngIf="uemail.errors?.email && uemail.touched">Please enter the valid Email
+              </p>
+              <div class="form-floating mb-3">
+                <input class="form-control" id="inputUsername" (blur)="usernamecheck(username.value)" name="username" type="text" ngModel #username="ngModel"
+                placeholder="name@example.com" required username />
+                <label for="inputUsername">Username</label>
+              </div>
+              <p class="alert alert-danger" *ngIf="username.errors?.required && username.touched">Please enter the username</p>
+              <p class="alert alert-danger" *ngIf="username.errors?.username && username.touched">Please enter the valid Username
+              </p>
+              <div class="form-floating mb-3">
+                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="userpass"
+                  ngModel #userpass="ngModel" required password minlength="8" />
+                <label for="inputPassword">Create Password</label>
+              </div>
+              <p class="alert alert-danger" *ngIf="userpass.errors?.required && userpass.touched">Please Create a
+                password</p>
+              <p class="alert alert-danger" *ngIf="userpass.errors?.minlength">Please Create a strong password (min 8
+                character) </p>
+              
+
+              <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                <button class="btn btn-secondary btn-block" value="Register" type="submit"
+                  [disabled]="f.invalid || !uuseremailavail" style="text-align: center; font-family: 'Roboto', sans-serif, cursive;
+                                                          font-family: 'Roboto', sans-serif, cursive;"> Add trainer</button> 
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-center py-3">
+            <p class="card-text"><small class="text-muted">Darwin Fitness</small></p>
+            <button class="btn btn-secondary me-md-2" type="button" routerLink="/admin-dashboard" style="border:solid #1F2833; margin: 1vw;">Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

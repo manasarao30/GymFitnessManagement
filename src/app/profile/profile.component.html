@@ -1,0 +1,75 @@
+<div class="container" style="font-family: 'Roboto', sans-serif, cursive;
+font-family: 'Roboto', sans-serif, cursive; background-color: #c5c6c7; max-height:300vh; border-radius: 12px;">
+    <hr style="height: 2px; margin: 1%;padding: 0; ">
+    <div style="padding-bottom: 2vh;">
+        <div style="display: flex;   flex-flow: row wrap;">
+            <div class="card mb-3 shadow-lg "
+                style="width: 28rem; margin: 0vw 1vw 1vw 1vw; background-color: #c5c6c7; border-radius: 12px;">
+                <div class="card-body" *ngIf="userdata">
+                    <h5 class="card-title">Name : {{userdata.fname}} {{userdata.lname}}</h5>
+                    <hr>
+                    <p class="card-text">Age: {{userdata.age}}<br>
+                        Gender: {{userdata.gender}} <br>
+                        Email: {{userdata.email}} <br>
+                        Phone number: {{userdata.phone_no}} <br>
+
+                    <div class="d-grid gap-2 col-6 mx-auto" style="margin: 20vh;">
+                        <button class="btn btn-secondary" type="button" routerLink="/cart"
+                            style="border:solid #1F2833;">{{buy}}
+                            Membership plan </button>
+
+                        <button  *ngIf="isActive"  class="btn btn-secondary" type="button"  (click)="cancelMembership()"
+                        style="border:solid #1F2833;">Cancel
+                        Membership plan </button>
+                    </div>
+                   
+
+                </div>
+            </div>
+            <div class="card-body" ><p class="alert alert-danger" *ngIf="msg" style="align-self: center;">{{msg}}</p>
+            <div style="display: flex; flex-direction: column;" >
+                <div *ngIf="isActive" class="card " style="background-color: #c5c6c7; max-width: 120vh;  border-radius: 12px;">
+
+                    <div class="card-body shadow-lg" *ngIf="membershipPlan" style="background-color: #c5c6c7; border-radius: 12px;">
+                        <h4 class="card-title" >Package: {{membershipPlan.plan_name}} Plan</h4> 
+                        <ul>
+                            <li class="card-text" *ngFor="let benefit of membershipPlan.benefits.split(',')">{{ benefit }}</li>
+                          </ul>
+                          <p class="card-text">Duration: {{membershipPlan.duration}} <br></p>
+                        <div *ngIf="userdata">
+                        <hr>
+                        <p class="card-text">Purchased on: {{userdata.dateOfRegistration |slice :0:10 }} <br></p>
+                        <p class="card-text">Plan expires on: {{userdata.dateOfExpiry |slice :0:10 }} <br></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column;" >
+                    <div class="card " style="background-color: #c5c6c7; max-width: 120vh;margin: 10vh; border-radius: 12px;">
+
+                <div class="card-body shadow-lg" style="background-color: #c5c6c7; border-radius: 12px;">
+                    <h4 class="card-title" >User Feedback</h4>  <h6 class="card-title">Please provide relevant feedback about your experience</h6>  
+                    <hr>
+                    <div *ngIf="userdata">
+                        <form #f="ngForm" (submit)="feedback(f)">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="feedback" type="text" name="feedback"
+                                placeholder="abc" ngModel/>
+                            <label for="feedback">Enter feedback</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                            <button type="submit" class="btn btn-secondary btn-block" name="upassword"  style="text-align: center;" >Submit feedback</button>
+ 
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+        </div>
+        
+    </div>
+
+</div>
